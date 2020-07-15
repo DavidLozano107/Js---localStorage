@@ -2,7 +2,7 @@
 
 En este proyecto vamos a utilizar el local storage. 
 
-#Caracteristicas del proyecto.
+# Caracteristicas del proyecto.
 
 1) El usuario podrá crear, eliminar y ver sus tweets en un listado.
 2) Los tweets se almacenaran en Local Storage
