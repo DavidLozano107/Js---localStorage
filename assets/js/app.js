@@ -1,38 +1,54 @@
-//Variables
+//Variables 
 const listaTweets = document.getElementById('lista-tweets');
 
-//Event-Listener
+
+
+//Eventos
 
 eventListener();
 
 function eventListener() {
-    //cuando se envia el formulario
-    document.querySelector('#formulario').addEventListener('submit', agregarTweet)
+    //Seleccionamos el articulo del formulario y cuando se envie se agrega el tweet
+    document.querySelector('#formulario').addEventListener('submit', agregarTweet);
+
+    //Borrar tweet
+    listaTweets.addEventListener('click', eliminarTweet);
+
+
+
 }
+
 
 
 //Funciones
 
 
-//Añadir tweet del formulario
+// Añadimos El tweet al formulario 
 function agregarTweet(e) {
     e.preventDefault();
-    //Leer el valor del textArea
-    const tweet = document.getElementById('tweet').value;
-    //Crear el btn de Borrar
-    const btnBorrar = document.createElement('a');
-    btnBorrar.classList = 'borrar-tweet';
-    btnBorrar.innerText = 'X';
-
-
-    //crear elemento y añadirle el contenido a la lista
+    //Extrar el valor del textArea
+    tweet = document.getElementById('tweet').value;
+    //Creat el btn de eliminar
+    const btnEliminar = document.createElement('a');
+    //Le colocamos una clase con el nombre de borrar tweet 
+    btnEliminar.classList = 'borrar-tweet';
+    //Le agregamos el valor del texto a la etiqueta
+    btnEliminar.innerText = 'X';
+    //Imprimirlo en la pantalla
+    //Crear la etiqueta li
     const li = document.createElement('li');
+    //Le agregamos el valor del tweet y el btn para eliminar
     li.innerText = tweet;
-    //añade el brn de borrar al tweet
-    li.appendChild(btnBorrar);
-    //añade el btn a la lista
+    li.appendChild(btnEliminar);
+    //Agregamos la etiqueta que creamos anteriormente en container de ListaTweet 
     listaTweets.appendChild(li);
+}
 
+function eliminarTweet(e) {
+    e.preventDefault();
+    if (e.target.className == 'borrar-tweet') {
 
-
+        e.target.parentElement.remove();
+        alert('Tweet Eliminado');
+    }
 }
